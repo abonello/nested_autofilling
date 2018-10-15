@@ -40,29 +40,15 @@ def home():
 
 @app.route("/services", methods=["POST"])
 def services():
-
-    # data = [
-    #         "Plaster",
-    #         "Straighten bent bones",
-    #         "lengthening bones"
-    #     ]
-    # return jsonify({"data": data})
     data = request.form['ref']
-    # print(data)
 
     for dept in depts:
-        # print(dept['ref'])
         if dept['ref'] == data:
             services = dept['services']
-            # print(services)
 
     if services:
-
-        #  get services
-
         return jsonify({"data": services})
     return jsonify({"error" : "an error occured"})
-    # return "Pass"
 
 
 if __name__ == '__main__':

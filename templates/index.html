@@ -29,7 +29,6 @@
                             <option id="{{ dept['ref'] }}" class="dept" value="{{ dept['ref'] }}">{{ dept['name'] }}</option>
                             {% endfor %}
                         </select>
-                        
                     </div>
                 </div>
 
@@ -41,16 +40,10 @@
                         <select id="services" name="services">
                             <option value="" disabled selected>Select a department from list above</option>
                         </select>
-                        
                     </div>
                 </div>
-
-
-
-
             </form>
         </div>
-
     </div>
 
 
@@ -77,7 +70,6 @@
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    // console.log(data);
                     let optionToFill = $("#services");
                     optionToFill.find('option').remove().end();
 
@@ -87,26 +79,7 @@
                     });
                 }
             });
-
-
-
-
-
         });
-            
-            
-            // 'selected')
-            //     .attr('selected', true);
-        
-        
-        // onClick(function(this) {
-        //     console.log(this);
-        // });
-
-        // $('.id_100 option')
-        //         .removeAttr('selected')
-        //         .filter('[value=val1]')
-        //         .attr('selected', true)
     </script>
 </body>
 </html>
