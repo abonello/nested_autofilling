@@ -11,28 +11,37 @@
 <body>
     <div class="container">
         <div class="row">
+            <h1>Experiment</h1>
+            <h2>Filling in second select element depending on selection in first select element</h2>
+            <p>Note that the <strong>Services</strong> select element is not populated before you make a selection in the <strong>Department</strong> selector.</p>
+            <p>This method uses jQuery to make an ajax call to Flask to get the relevant data and populate the servises selector once an option for the departments has been made by the user. We cannot rely on jinja to do this as jinja templating executes at the start of the page. At that time the user has not made any selection. The user has not even seen the page.</p>
+        </div>
+        <div class="row">
             <form action="{#{ url_for('insert_food_item') }#}" method="POST" class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
+                        <div class="col-xs-3 col-sm-2">
+                            <label>Department</label>
+                        </div>
                         <select id="department" name="department">
                             <option value="" class="dept" disabled selected>Choose a department</option>
                             {% for dept in depts %}
                             <option id="{{ dept['ref'] }}" class="dept" value="{{ dept['ref'] }}">{{ dept['name'] }}</option>
                             {% endfor %}
                         </select>
-                        <label>Department</label>
+                        
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
+                        <div class="col-xs-3 col-sm-2">
+                            <label>Services</label>
+                        </div>
                         <select id="services" name="services">
-                            <option value="" disabled selected>Choose a service from list above</option>
-                            <!-- {#% for dept in depts %#}
-                            <option value="{#{ dept['ref'] }#}">{#{ dept['name'] }#}</option>
-                            {#% endfor %#} -->
+                            <option value="" disabled selected>Select a department from list above</option>
                         </select>
-                        <label>Services</label>
+                        
                     </div>
                 </div>
 
